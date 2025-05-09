@@ -1,55 +1,28 @@
-//https://leetcode.com/problems/majority-element-ii/description/
+
+//https://leetcode.com/problems/pascals-triangle/description/
 
 /*
 class Solution {
 public:
-    vector<int> majorityElement(vector<int>& nums) {
-
-       int n=nums.size();
-       int c1=0,c2=0,ele1,ele2;
-       for(int i=0;i<nums.size();i++)
-       {
-        if(nums[i]==ele1)
+    vector<vector<int>> generate(int n) {
+        vector<vector<int>>ans(n,vector<int>(n,0));
+        for(int i=0;i<n;i++)
         {
-            c1++;
+            vector<int>v(i+1);
+            for(int j=0;j<=i;j++)
+            {
+                if(j==0 || j==i) v[j]=1;
+                else 
+                {
+                v[j]=ans[i-1][j-1]+ans[i-1][j];
+                }
+            }
+            ans[i]=v;
         }
-        else if(nums[i]==ele2)
-        {
-            c2++;
-        }
-        else if(c1==0)
-        {
-            ele1=nums[i];
-            c1=1;   
-        }
-        else if(c2==0)
-        {
-            ele2=nums[i];
-            c2=1;
-        }
-        else
-        {
-            c1--;
-            c2--;
-        }
-       } 
-       
-       vector<int>ans;
-       int f1=0,f2=0;
-       for(int i=0;i<nums.size();i++)
-       {
-        if(nums[i]==ele1) f1++;
-        else if(nums[i]==ele2) f2++;
-       }
-       if(f1>floor(n/3)) ans.push_back(ele1);
-       if(f2>floor(n/3)) ans.push_back(ele2);
-       return ans;
+          return ans;
     }
+      
+        
+    
 };
-
-*/
-
-/*
-Time=> O(n)
-Space=> O(1)
 */
