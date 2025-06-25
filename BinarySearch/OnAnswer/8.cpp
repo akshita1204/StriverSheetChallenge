@@ -1,15 +1,7 @@
 //https://www.geeksforgeeks.org/problems/aggressive-cows/1
-//{ Driver Code Starts
-// Initial function template for C++
 
 #include <bits/stdc++.h>
 using namespace std;
-
-
-// } Driver Code Ends
-
-
-// User function Template for C++
 
 class Solution {
   public:
